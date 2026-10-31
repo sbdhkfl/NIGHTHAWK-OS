@@ -1,0 +1,17 @@
+[Icon Theme]
+Name=NightHawk
+Description=NIGHTHAWK OS icon theme
+Version=1.0
+Inherits=Adwaita
+
+[Desktop Entry]
+Type=Application
+Version=1.0
+
+[Directory]
+Path=apps
+
+[apps]
+Type=Directory
+Name=Applications
+Icon=apps

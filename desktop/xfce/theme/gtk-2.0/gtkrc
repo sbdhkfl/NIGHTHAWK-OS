@@ -1,0 +1,26 @@
+style "nighthawk"
+{
+    bg_normal #0a0a0c
+    bg_selected #4a0d14
+    bg_pseudo #141419
+    text #e8e8ec
+    fg #e8e8ec
+    border_color #1c1c22
+    selected_bg #4a0d14
+    selected_fg #ffffff
+    accent_color #e10613
+    base_color #0a0a0c
+}
+
+style "nighthawk-entry"
+{
+    bg normal #121216
+    bg selected #4a0d14
+    text #e8e8ec
+    cursor #e10613
+}
+
+class "*" style "nighthawk"
+class "GtkWindow" style "nighthawk"
+widget "GtkWindow" style "nighthawk"
+widget "GtkDrawingArea" style "nighthawk"

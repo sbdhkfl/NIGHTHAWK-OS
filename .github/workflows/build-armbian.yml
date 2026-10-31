@@ -1,0 +1,22 @@
+name: Build NIGHTHAWK OS image
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run NIGHTHAWK OS build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          ./build.sh

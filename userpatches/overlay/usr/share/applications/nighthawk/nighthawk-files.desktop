@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NIGHTHAWK Files
+Comment=Crimson file manager
+Exec=thunar
+Icon=nighthawk-files
+Terminal=false
+Categories=System;FileTools;
+Keywords=nighthawk files file manager thunar

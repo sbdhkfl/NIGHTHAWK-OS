@@ -1,0 +1,19 @@
+# NIGHTHAWK OS - core package list
+# Always installed into the built image. Keep in sync with
+# userpatches/customize-image.sh.
+
+# --- base utilities ---
+curl
+wget
+git
+python3
+python3-venv
+dnsutils
+openssh-client
+
+# --- security toolkit: core ---
+lynis
+ufw
+nmap
+tcpdump
+openssh-server

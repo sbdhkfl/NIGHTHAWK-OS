@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NIGHTHAWK Browser
+Comment=Secure web browsing with Firefox ESR
+Exec=firefox-esr
+Icon=nighthawk-browser
+Terminal=false
+Categories=Web;Internet;
+Keywords=nighthawk browser firefox web

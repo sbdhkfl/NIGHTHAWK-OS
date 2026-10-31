@@ -1,0 +1,8 @@
+# NIGHTHAWK OS — build outputs and caches
+build-workspace/
+build/
+build/logs/
+releases/*.img
+releases/*.img.sha256
+*.img
+*.img.sha256

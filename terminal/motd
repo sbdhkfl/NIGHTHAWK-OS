@@ -1,0 +1,24 @@
+****************************************************
+*                                                  *
+*   █████╗ ███████╗██╗██╗███████╗██████╗        *
+*  ██╔══██╗██╔════╝██║██║██╔════╝██╔══██╗       *
+*  ██████╔╝██║     ██║██║█████╗  ██████╔╝       *
+*  ██╔══██╗██║     ██║██║██╔══╝  ██╔══██╗       *
+*  ██║  ██║╚██████╗██║██║███████╗██║  ██║       *
+*  ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝       *
+*                                                  *
+*              N I G H T H A W K   O S            *
+*                                                  *
+****************************************************
+
+Welcome to NIGHTHAWK OS — a lightweight, Debian 13 (Trixie) based
+cybersecurity workstation for the Orange Pi Zero 3.
+
+  * Desktop ........ XFCE4 (NIGHTHAWK theme)
+  * Browser ........ Firefox ESR
+  * Toolkit ........ Lynis, Nmap, Tcpdump, UFW, DNS tools
+  * Memory ......... zram swap, tuned for 2GB systems
+
+Type 'nighthawk --help' in a terminal for curated security helpers.
+Documentation: /usr/share/doc/nighthawk-os/README.md
+****************************************************

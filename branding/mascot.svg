@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NIGHTHAWK OS hawk mascot">
+  <defs>
+    <linearGradient id="nighthawk-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#18181f"/>
+      <stop offset="1" stop-color="#050507"/>
+    </linearGradient>
+  </defs>
+  <!-- swept-back wings -->
+  <polygon points="262,306 86,166 148,214 254,280" fill="#0a0a0e"/>
+  <polygon points="250,302 330,214 398,166 356,306" fill="#0a0a0e"/>
+  <!-- body / tail -->
+  <path d="M250,300 C246,336 214,362 176,388 L130,416 C116,426 106,428 94,420 L120,386 C158,358 208,324 250,300 Z" fill="url(#nighthawk-body)"/>
+  <!-- head -->
+  <circle cx="308" cy="288" r="27" fill="url(#nighthawk-body)"/>
+  <!-- beak -->
+  <polygon points="334,280 378,293 334,306" fill="#0a0a0e"/>
+  <!-- distinctive glowing crimson eye -->
+  <circle cx="322" cy="280" r="8" fill="#e10613"/>
+  <circle cx="322" cy="280" r="3.4" fill="#1a0003"/>
+</svg>

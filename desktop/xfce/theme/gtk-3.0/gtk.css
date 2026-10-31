@@ -1,0 +1,150 @@
+/* NIGHTHAWK OS - XFCE GTK3 theme (Nighthawk) */
+
+@define-color window_bg #0a0a0c;
+@define-color window_fg #e8e8ec;
+@define-color base #0a0a0c;
+@define-color text #e8e8ec;
+@define-color accent #e10613;
+@define-color accent_fg #ffffff;
+@define-color dark #050507;
+@define-color light #1a1a20;
+@define-color selected_bg #4a0d14;
+@define-color selected_fg #ffffff;
+@define-color borders #1c1c22;
+@define-color scrollbar #1c1c22;
+
+window, dialog, vdoubleclick {
+  background-color: @window_bg;
+  color: @window_fg;
+  border-color: @borders;
+}
+
+window .titlebar {
+  background-color: @dark;
+  color: @window_fg;
+  border-bottom: 1px solid @borders;
+}
+
+.titlebar {
+  background-color: @dark;
+  color: @window_fg;
+}
+
+entry, spinbutton, combobox entry, notebook header, radiobutton, checkbox {
+  background-color: #121216;
+  color: @text;
+  border-color: @borders;
+}
+
+entry:selected, combobox:selected, notebook list frame > entry, notebook list row:selected {
+  background-color: @selected_bg;
+  color: @selected_fg;
+}
+
+button {
+  background: @dark;
+  background-image: none;
+  border-color: @borders;
+  color: @window_fg;
+}
+
+button:hover, button:focus {
+  background-color: #141419;
+  border-color: #3a1420;
+}
+
+button:active, button.checked {
+  background-color: #1d0a10;
+  border-color: #5c1622;
+}
+
+label {
+  color: @text;
+}
+
+frame > label {
+  color: @text;
+}
+
+pathbar, slider {
+  background-color: #121216;
+}
+
+spinbutton text, entry {
+  background-color: #121216;
+  color: @text;
+  border: 1px solid @borders;
+  padding: 2px;
+}
+
+checkbox, radiobutton {
+  background-color: transparent;
+  color: @text;
+}
+
+check {
+  background-image: none;
+}
+
+scale trough {
+  background-color: #121216;
+}
+
+scale trough:hover, scale trough:indeterminate {
+  background-color: #1a1a20;
+}
+
+scale slider {
+  background-color: #1a1a20;
+  border-color: @borders;
+}
+
+scrollbar {
+  background-color: #121216;
+  border: 1px solid @borders;
+}
+
+scrollbar trough {
+  background-color: #121216;
+}
+
+scrollbar slider {
+  background-color: #26262e;
+  border: 1px solid @borders;
+}
+
+scrollbar slider:hover {
+  background-color: #33222a;
+}
+
+gridview, treeview, listview {
+  background-color: @dark;
+  color: @text;
+}
+
+gridview .cell:selected, treeview .cell:selected, listview .cell:selected {
+  background-color: @selected_bg;
+  color: @selected_fg;
+}
+
+gridview .cell, treeview .cell, listview .cell {
+  border-color: @borders;
+}
+
+iconview {
+  background-color: @dark;
+  icon-size: 22px;
+}
+
+textview, notebook {
+  background-color: @dark;
+  color: @text;
+}
+
+hdycombobox, combobox {
+  background: @dark;
+}
+
+entry:focus, spinbutton:focus, textview:focus, notebook header:focus {
+  border-color: #5c1622;
+}

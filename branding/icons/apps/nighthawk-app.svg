@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="NIGHTHAWK hawk application icon">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0a0a0e"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#c8102e" stroke-opacity="0.6" stroke-width="2"/>
+  <polygon points="262,306 86,166 148,214 254,280" fill="#e10613"/>
+  <polygon points="250,302 330,214 398,166 356,306" fill="#e10613"/>
+  <path d="M250,300 C246,336 214,362 176,388 L130,416 C116,426 106,428 94,420 L120,386 C158,358 208,324 250,300 Z" fill="#17171f"/>
+  <circle cx="308" cy="288" r="27" fill="#17171f"/>
+  <polygon points="334,280 378,293 334,306" fill="#17171f"/>
+  <circle cx="322" cy="280" r="8" fill="#ff3b3b"/>
+  <circle cx="322" cy="280" r="3.4" fill="#1a0003"/>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="NIGHTHAWK OS wallpaper">
+  <defs>
+    <linearGradient id="nw-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050507"/>
+      <stop offset="0.55" stop-color="#0a090c"/>
+      <stop offset="1" stop-color="#12060c"/>
+    </linearGradient>
+    <radialGradient id="nw-glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#c8102e" stop-opacity="0.34"/>
+      <stop offset="0.45" stop-color="#c8102e" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#c8102e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nw-vignette" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.72"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#nw-bg)"/>
+  <rect width="1280" height="720" fill="url(#nw-glow)"/>
+  <g stroke="#c8102e" stroke-opacity="0.16" stroke-width="1.5">
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="300" x2="1280" y2="300"/>
+    <line x1="0" y1="420" x2="1280" y2="420"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="160" y1="0" x2="160" y2="720"/>
+    <line x1="380" y1="0" x2="380" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="940" y1="0" x2="940" y2="720"/>
+  </g>
+  <circle cx="640" cy="430" r="330" fill="#c8102e" opacity="0.055"/>
+  <circle cx="640" cy="430" r="150" fill="#e10613" opacity="0.07"/>
+  <rect width="1280" height="720" fill="url(#nw-vignette)"/>
+</svg>

@@ -1,0 +1,30 @@
+# NIGHTHAWK OS - desktop package list
+# Installed on top of the Armbian minimal XFCE desktop tier.
+
+# XFCE4 desktop stack (minimal: DE only, no heavy extras)
+xfce4-session
+xfce4-panel
+xfce4-settings
+xfce4-terminal
+thunar
+xfce4-appfinder
+xfwm4
+xfdesktop
+xfce4-power-manager
+xfce4-screenshooter
+xfce4-clipman-plugin
+btop
+
+# Display manager
+lightdm
+lightdm-gtk-greeter
+polkitd
+
+# X server
+xserver-xorg-core
+
+# Networking
+network-manager
+
+# Browser
+firefox-esr

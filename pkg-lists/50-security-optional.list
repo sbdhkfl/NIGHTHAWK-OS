@@ -1,0 +1,18 @@
+# NIGHTHAWK OS - security toolkit: optional install groups
+# NOT installed into the default image. Install explicitly on a running
+# NIGHTHAWK OS system, e.g. after the first boot:
+#
+#   sudo apt install nftables btop htop tshark fail2ban
+#
+# Group: firewall
+nftables
+
+# Group: monitoring
+btop
+htop
+
+# Group: packet inspection
+tshark
+
+# Group: intrusion prevention
+fail2ban

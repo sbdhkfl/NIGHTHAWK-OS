@@ -1,0 +1,8 @@
+{
+  "policies": {
+    "DisableDefaultBrowserCheck": true,
+    "DisableDefaultSearchEngine": true,
+    "ManagedTelemetry": false,
+    "OfferExitSurvey": false
+  }
+}

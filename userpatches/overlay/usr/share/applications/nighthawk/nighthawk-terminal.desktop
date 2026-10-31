@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NIGHTHAWK Terminal
+Comment=Crimson-command cybersecurity terminal
+Exec=xfce4-terminal
+Icon=nighthawk-terminal
+Terminal=true
+Categories=System;TerminalEmulator;
+Keywords=nighthawk terminal shell bash crimson

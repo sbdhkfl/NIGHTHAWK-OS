@@ -1,0 +1,22 @@
+# NIGHTHAWK OS - security toolkit: core list
+# Installed into the image at build time.
+
+# Local system auditing / hardening
+lynis
+ufw
+
+# Network diagnostics
+nmap
+tcpdump
+dnsutils
+
+# Python security development
+python3
+python3-venv
+
+# Administration / shell
+git
+curl
+wget
+openssh-client
+openssh-server
