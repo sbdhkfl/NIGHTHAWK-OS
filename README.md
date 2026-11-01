@@ -69,6 +69,20 @@ See [docs/HARDWARE.md](docs/HARDWARE.md) for details.
 
 ---
 
+## Multi-platform roadmap
+
+NIGHTHAWK is being organized as a multi-platform project, but **there is not one universal image**. Each device family needs its own boot chain, kernel, firmware, drivers, and validation.
+
+The target registry and implementation plan are maintained in:
+- [Multi-platform architecture](docs/MULTI-PLATFORM.md)
+- [Machine-readable target registry](platforms/targets.json)
+
+Initial targets: Orange Pi, Raspberry Pi, Intel/AMD PCs, virtual machines, other ARM64 boards, and Android phones/tablets. The Orange Pi Zero 3 remains the only configured image build at this stage. The other targets are planned or research-only, not currently downloadable or supported. Android devices require model-specific investigation.
+
+The platform registry is checked automatically by the **Validate platform registry** workflow. This check validates metadata only; it does not build or certify operating-system images.
+
+---
+
 ## 3. What the image contains
 
 ### Base system
