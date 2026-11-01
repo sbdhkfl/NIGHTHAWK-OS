@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "project": "NIGHTHAWK OS",
+  "policy": "One image is not expected to boot on every device. Each target must have a compatible boot chain, kernel, device tree, firmware, and tested image.",
+  "targets": [
+    {
+      "id": "orangepi-zero3",
+      "name": "Orange Pi Zero 3",
+      "family": "arm-sbc",
+      "architecture": "arm64",
+      "boot_strategy": "armbian-board-image",
+      "status": "existing-build-physical-validation-pending",
+      "build_system": "Armbian",
+      "config": "userpatches/config-nighthawk.conf",
+      "notes": "Current source build target. The existing release artifact is specific to Allwinner H618. Physical boot and peripheral validation remain required."
+    },
+    {
+      "id": "raspberry-pi",
+      "name": "Raspberry Pi family",
+      "family": "arm-sbc",
+      "architecture": "arm64",
+      "boot_strategy": "raspberry-pi-firmware-and-kernel",
+      "status": "planned",
+      "build_system": "TBD",
+      "notes": "Separate model-specific images and firmware are required. Do not use the Orange Pi image."
+    },
+    {
+      "id": "generic-x86-64",
+      "name": "Intel/AMD 64-bit PCs",
+      "family": "pc",
+      "architecture": "x86_64",
+      "boot_strategy": "uefi-live-or-installer",
+      "status": "planned",
+      "build_system": "TBD",
+      "notes": "Requires a PC-specific image pipeline, UEFI boot support, storage and graphics testing."
+    },
+    {
+      "id": "virtual-machines",
+      "name": "Virtual machines",
+      "family": "virtualization",
+      "architecture": "x86_64-and-arm64",
+      "boot_strategy": "virtual-disk-or-live-iso",
+      "status": "planned",
+      "build_system": "TBD",
+      "notes": "Separate artifacts such as qcow2, raw virtual disks, or ISO must be built and tested for each guest architecture and hypervisor."
+    },
+    {
+      "id": "other-arm64-boards",
+      "name": "Other ARM64 single-board computers",
+      "family": "arm-sbc",
+      "architecture": "arm64",
+      "boot_strategy": "board-specific",
+      "status": "planned",
+      "build_system": "Per-board",
+      "notes": "Each board needs its own supported bootloader, kernel, device tree, firmware, and hardware validation."
+    },
+    {
+      "id": "android-devices",
+      "name": "Android phones and tablets",
+      "family": "mobile",
+      "architecture": "varies",
+      "boot_strategy": "device-specific-boot-chain",
+      "status": "research-only",
+      "build_system": "TBD",
+      "notes": "Not a standard Linux PC/SBC target. Requires per-model bootloader unlock support, device trees, kernel/vendor drivers, partition and recovery compatibility. No generic Android image is promised."
+    }
+  ]
+}
