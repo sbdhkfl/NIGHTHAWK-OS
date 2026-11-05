@@ -1,32 +1,41 @@
 # NIGHTHAWK OS — Hardware Compatibility
 
-## Supported hardware
+NIGHTHAWK OS provides **separate platform images**. An x86_64 PC ISO and an ARM64 Orange Pi image are not interchangeable.
 
-| Hardware | Status |
-|---|---|
-| Orange Pi Zero 3 — 2GB RAM (primary target) | Supported |
-| Orange Pi Zero 3 — 4GB RAM (secondary) | Supported |
+## x86_64 PCs — image generated, validation pending
 
-SoC: Allwinner H618 (quad-core Cortex-A53, ARM64/AArch64, Mali-G31 MP2 GPU).
-Boot medium: microSD (Armbian u-boot / sunxi).
-Kernel: Armbian current 6.18.x for H618 (`sun50iw9`).
+| Hardware family | Intended image | Status |
+|---|---|---|
+| Intel 64-bit desktops | PC x86_64 ISO | Image generated; BIOS/UEFI and hardware validation pending |
+| Intel 64-bit laptops | PC x86_64 ISO | Image generated; model-specific validation pending |
+| AMD 64-bit desktops | PC x86_64 ISO | Image generated; BIOS/UEFI and hardware validation pending |
+| AMD 64-bit laptops | PC x86_64 ISO | Image generated; model-specific validation pending |
 
-## Supported features
+A 1.63 GiB PC ISO was generated. This does **not** mean every PC is guaranteed to work. Compatibility depends on firmware settings and the exact graphics, Wi-Fi, Bluetooth, audio, touchpad, storage, and other hardware. BIOS and UEFI tests and representative physical-device tests must be documented before claiming broad validated support.
 
-- HDMI output (micro HDMI, up to 4K @ 60fps on Zero 3).
-- Ethernet (Gigabit on Zero 3).
-- Onboard Wi-Fi 5 + Bluetooth 5 (H618).
-- USB 2.0 host ports.
-- CPU temperature monitoring via thermal zone.
+## ARM64 — Orange Pi Zero 3
 
-## Not supported / out of scope
+| Hardware | Image | Status |
+|---|---|---|
+| Orange Pi Zero 3 (Allwinner H618, ARM64) | [Release 4 image](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases) | Dedicated board image available; follow Release 4 hardware notes |
 
-- Other Allwinner boards (not validated).
-- x86_64 desktop PCs (final image is ARM64 only).
-- Internal eMMC/SD card installation paths beyond microSD (Armbian image targets SD).
+The Orange Pi image uses a board-specific boot chain, kernel, firmware, and device configuration. **Do not flash it to an Intel/AMD PC or another ARM board.**
 
-## Known limitations
+## Not covered by these images
 
-- 2GB RAM: lightweight-by-design; heavy workloads may swap to zram.
-- GPU acceleration for desktop compositing is limited; compositor disabled by default for performance.
-- Bluetooth UART bring-up may require firmware blobs (installed via `armbian-firmware`).
+- Raspberry Pi models.
+- Other ARM64 single-board computers.
+- Android phones and tablets.
+- Other device families without their own image and validation.
+
+## Validation checklist for PC images
+
+- [ ] BIOS boot test completed and recorded.
+- [ ] UEFI boot test completed and recorded.
+- [ ] Secure Boot behavior documented.
+- [ ] Intel and AMD systems tested.
+- [ ] Graphics/display, keyboard, touchpad, audio, Ethernet, Wi-Fi, and Bluetooth checked.
+- [ ] Installer/storage behavior checked on representative systems.
+- [ ] Known limitations and tested hardware models published.
+
+A successful ISO build or virtual-machine boot is not proof of universal physical-hardware compatibility.
