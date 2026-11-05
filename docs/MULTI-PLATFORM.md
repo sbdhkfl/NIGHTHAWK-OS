@@ -2,26 +2,28 @@
 
 ## Goal
 
-Keep one NIGHTHAWK user experience and shared configuration while producing a **different, correctly built artifact for each hardware target**.
+NIGHTHAWK OS maintains separate images for different hardware targets. A single image is not expected to boot on every device because CPU architecture, boot firmware, bootloader, kernel, device tree, drivers, storage layout, graphics, and wireless firmware differ.
 
-There is no universal disk image for all devices. CPU architecture alone is not enough: boot firmware, bootloader, kernel, device tree, drivers, storage layout, graphics, wireless firmware, and installer format can differ.
+## Actual release map
 
-## Current image status
+| Release | Target | Architecture | Description |
+|---|---|---|---|
+| **Release 1** | Orange Pi Zero 3 | ARM64 | Original Orange Pi build without Wi-Fi |
+| **Release 2** | Orange Pi Zero 3 | ARM64 | Orange Pi build with Wi-Fi |
+| **Release 3** | Intel/AMD desktops and laptops | x86_64 | PC image |
+| Release 4 | — | — | **Does not exist** |
 
-| Target | Current status | Correct artifact |
-|---|---|---|
-| Intel/AMD 64-bit desktops and laptops | x86_64 ISO generated (1.63 GiB); BIOS/UEFI and hardware validation pending | PC x86_64 ISO |
-| Orange Pi Zero 3 | Dedicated ARM64 image available in [Release 4](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases); follow release hardware notes | Orange Pi Zero 3 ARM64 disk image |
-| Raspberry Pi family | Not provided | Model-specific ARM64 image required |
-| Virtual machines | PC ISO may be evaluated in a VM; dedicated VM artifacts not yet published | Tested guest-specific ISO/disk image |
-| Other ARM64 boards | Not provided | Board-specific image required |
-| Android phones/tablets | Research only | Device-specific port only where technically supported |
+All published downloads are in the [NIGHTHAWK OS release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
 
-**Image generated** does not mean **fully hardware validated**. The PC ISO still needs BIOS/UEFI and representative physical-device testing. The Orange Pi Release 4 image is board-specific and must not be used on PCs or other boards.
+## Platform-specific image rules
 
-## Architecture layers
+- Use Release 1 or 2 only for the Orange Pi Zero 3. Choose based on whether you need the no-Wi-Fi or Wi-Fi build.
+- Use Release 3 for compatible Intel/AMD 64-bit desktops and laptops.
+- Never flash an ARM64 Orange Pi image to an x86_64 PC.
+- Never use the PC image as an Orange Pi board image.
+- Other boards and device families need their own image, boot chain, kernel, firmware, and validation.
 
-### 1. Shared NIGHTHAWK layer
+## Shared NIGHTHAWK layer
 
 These components should remain hardware-independent wherever possible:
 
@@ -31,9 +33,7 @@ These components should remain hardware-independent wherever possible:
 - Documentation, first-boot experience, and release metadata.
 - Security and privacy defaults.
 
-Shared files should not assume a specific CPU, network interface, GPU, bootloader, or storage device.
-
-### 2. Platform adapter layer
+## Platform adapter layer
 
 Each target owns its hardware-specific configuration:
 
@@ -47,52 +47,19 @@ Each target owns its hardware-specific configuration:
 - Device-specific package additions/removals.
 - Build and validation commands.
 
-Do not copy an Orange Pi device tree, bootloader, or kernel into another board's image.
+Do not copy an Orange Pi device tree, bootloader, or kernel into the PC image.
 
-### 3. Artifact and release layer
+## PC compatibility and validation
 
-Artifacts should be named predictably:
+Release 3 is the PC image for compatible Intel/AMD 64-bit desktops and laptops. BIOS/UEFI support and hardware compatibility must be verified against representative systems. Graphics, Wi-Fi, Bluetooth, audio, touchpad, storage, and firmware vary by model; do not promise universal compatibility without physical testing.
 
-`NIGHTHAWK-<version>-<target>-<architecture>-<format>`
+## Future platforms
 
-Examples:
+Raspberry Pi, other ARM64 boards, Android devices, and additional VM formats are not included in Releases 1–3 unless a release explicitly says otherwise. Each future target needs its own image and test evidence.
 
-- `NIGHTHAWK-<version>-generic-pc-x86_64.iso`
-- `NIGHTHAWK-<version>-orangepi-zero3-arm64.img.xz`
+## Release quality requirements
 
-Every published artifact must include a SHA256 checksum, build report, source commit, upstream framework revision, target identifier, and known limitations. Never reuse a checksum between different images.
-
-## Build pipeline design
-
-1. Validate the target registry and reject unknown target IDs.
-2. Load the target's adapter/configuration.
-3. Build from the correct upstream framework and pinned revision.
-4. Apply shared NIGHTHAWK customization.
-5. Apply only that target's hardware adapter.
-6. Run static checks and inspect image metadata.
-7. Boot-test in a matching emulator or virtual machine where possible.
-8. Run a physical-device checklist for hardware-specific targets.
-9. Publish only artifacts that meet the release gate, with checksums and reports.
-
-The Orange Pi and PC images use separate build paths. The PC ISO has been generated; its boot and hardware validation remain in progress. The Orange Pi Zero 3 ARM64 image is distributed in Release 4.
-
-## Release gates
-
-A target may be marked fully validated only when all of the following exist:
-
-- A reproducible target-specific build configuration.
-- A successful build log and artifact checksum.
-- Bootloader/kernel/device-tree/firmware compatibility review.
-- Successful first boot on the exact target model (or named VM profile).
-- Working storage, display/console, networking, and input as applicable.
-- A completed target-specific test checklist.
-- Installation, recovery, and known-limitations documentation.
-
-Until then, use a precise status such as `image-generated-validation-pending` or `release-available-hardware-validation-pending`.
-
-## Android-specific caution
-
-Android hardware is especially fragmented. An ARM64 Android phone is not automatically able to boot a generic ARM64 Linux image. Bootloader unlock restrictions, verified boot, vendor kernels, device trees, modem/GPU/Wi-Fi drivers, partition layouts, and recovery procedures vary by model. NIGHTHAWK will not provide a generic phone-flashing image. Initial Android work should be research and compatibility inventory only.
+Every published artifact should include its target, architecture, checksum, build report, source commit, known limitations, and installation instructions. A target should only be called fully validated after successful boot and hardware checks on the exact target model or named VM profile.
 
 ## Contribution rule
 
