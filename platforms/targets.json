@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "NIGHTHAWK OS",
-  "policy": "NIGHTHAWK publishes separate platform images. A single image is not expected to boot on every device; each target requires its own boot chain, kernel, device tree, firmware, drivers, and validation.",
+  "policy": "NIGHTHAWK releases are target-specific. Release 1 is Orange Pi Zero 3 ARM64 without Wi-Fi; Release 2 is Orange Pi Zero 3 ARM64 with Wi-Fi; Release 3 is the x86_64 PC image for compatible Intel/AMD desktops and laptops. Release 4 does not exist.",
   "targets": [
     {
       "id": "orangepi-zero3",
@@ -9,10 +9,10 @@
       "family": "arm-sbc",
       "architecture": "arm64",
       "boot_strategy": "armbian-board-image",
-      "status": "release-4-available-hardware-validation-pending",
+      "status": "releases-1-and-2-available",
       "build_system": "Armbian",
       "config": "userpatches/config-nighthawk.conf",
-      "notes": "Use the dedicated ARM64 Orange Pi Zero 3 image in NIGHTHAWK-OS-RELEASE Release 4. This Allwinner H618 image must not be flashed to PCs or other boards."
+      "notes": "Release 1 is the Orange Pi Zero 3 ARM64 image without Wi-Fi. Release 2 is the Orange Pi Zero 3 ARM64 image with Wi-Fi. Use only on the Orange Pi Zero 3 / Allwinner H618."
     },
     {
       "id": "raspberry-pi",
@@ -30,9 +30,9 @@
       "family": "pc",
       "architecture": "x86_64",
       "boot_strategy": "uefi-live-or-installer",
-      "status": "image-generated-validation-pending",
+      "status": "release-3-available-validation-device-dependent",
       "build_system": "PC ISO build pipeline",
-      "notes": "A 1.63 GiB x86_64 ISO has been generated for Intel/AMD desktops and laptops. BIOS/UEFI boot, representative physical hardware, and peripheral validation remain pending; no universal compatibility claim."
+      "notes": "Release 3 is the x86_64 PC image intended for compatible Intel/AMD 64-bit desktops and laptops. BIOS/UEFI and peripheral compatibility may vary by system; do not claim universal support without physical testing."
     },
     {
       "id": "virtual-machines",
@@ -40,9 +40,9 @@
       "family": "virtualization",
       "architecture": "x86_64-and-arm64",
       "boot_strategy": "virtual-disk-or-live-iso",
-      "status": "validation-pending",
+      "status": "not-a-separate-release-target",
       "build_system": "TBD",
-      "notes": "The x86_64 PC ISO can be evaluated in a VM. Dedicated virtual-disk artifacts and named guest profiles are not yet published or fully validated."
+      "notes": "Release 3 may be tested in a compatible x86_64 virtual machine, but no separate dedicated VM release is defined here."
     },
     {
       "id": "other-arm64-boards",
