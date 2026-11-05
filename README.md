@@ -35,33 +35,22 @@ It deliberately avoids copying Kali's look and feel: no Kali artwork, dragon, or
 
 ## 2. Hardware compatibility
 
-### Current target
+### Supported image targets
 
-- **Orange Pi Zero 3 — 2GB RAM**
-- **Orange Pi Zero 3 — 4GB RAM**
+**Orange Pi Zero 3 (ARM64):** 2GB and 4GB variants using the Allwinner H618 platform. The 2GB model is the primary configuration target; validate each hardware revision separately.
 
-Both variants use the Allwinner H618 ARM64 platform. The 2GB model is the primary configuration target; the 4GB variant still requires its own validation.
+**Intel/AMD PCs and laptops (x86_64):** a separate Debian Trixie live-build ISO is available as Release 3. It is intended for compatible 64-bit desktops, laptops, and virtual machines. Hardware support varies by model; consult the release notes and hardware compatibility guide before installing.
 
-### Hardware covered by the current target
+### Orange Pi hardware covered
 
 - Allwinner H618 processor (quad-core Cortex-A53, ARM64/AArch64).
-- Mali-G31 MP2 GPU.
-- HDMI output.
-- Ethernet.
-- Onboard Wi-Fi and Bluetooth.
-- USB 2.0 host ports.
-- microSD boot.
-- CPU temperature monitoring (where exposed by the kernel).
+- Mali-G31 MP2 GPU, HDMI, Ethernet, onboard Wi-Fi/Bluetooth, USB 2.0, microSD boot, and CPU temperature monitoring where exposed by the kernel.
 
 ### Not currently supported
 
-- Intel/AMD desktop and laptop PCs.
-- Raspberry Pi boards.
-- Virtual machines.
-- Other ARM64 single-board computers.
-- Android phones and tablets.
+- Raspberry Pi boards, other ARM64 single-board computers, and Android phones/tablets.
 
-These may be considered for future development, but each requires a separate device-specific build and validation process. Do not flash the current Orange Pi image to another device.
+Each target uses its own bootloader, kernel, firmware, and drivers. Never flash an ARM64 image to a PC or the x86_64 ISO to an Orange Pi.
 
 See [docs/HARDWARE.md](docs/HARDWARE.md) for details.
 
@@ -69,7 +58,7 @@ See [docs/HARDWARE.md](docs/HARDWARE.md) for details.
 
 ## 3. Platform image status
 
-NIGHTHAWK OS now maintains separate image paths for **x86_64 PCs** and **ARM64 Orange Pi Zero 3**. The PC ISO has been generated, but its validation and publication are still pending. The Orange Pi Zero 3 ARM64 images are **Release 1 (without Wi-Fi)** and **Release 2 (with Wi-Fi)**. The PC desktop/laptop image is **Release 3**. See the [release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
+NIGHTHAWK OS maintains separate image paths for **x86_64 PCs** and **ARM64 Orange Pi Zero 3**. The PC desktop/laptop image is **Release 3**; Orange Pi images are **Release 1 (without Wi-Fi)** and **Release 2 (with Wi-Fi)**. See the [release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
 
 A generated image is not proof of compatibility with every computer. A platform should only be described as fully validated after its boot tests and hardware checklist are documented. See [docs/MULTI-PLATFORM.md](docs/MULTI-PLATFORM.md) and [platforms/targets.json](platforms/targets.json) for the current status.
 
@@ -139,9 +128,10 @@ nftables, btop, htop, tshark, fail2ban.
 
 ## 7. Security and privacy defaults
 
-- No shared default password; first-boot interactive user setup.
-- Root SSH login disabled.
-- No default accounts or SSH keys are shipped.
+- Orange Pi images use their documented first-boot account setup.
+- PC Release 3 live-session login: username `user`, password `live`.
+- The PC live credentials are public defaults for the live session; change the password if you keep/use that account, and create a personal account for an installed system.
+- Do not enable password-based root SSH. No SSH keys are pre-shipped.
 - UFW available; optional nftables package group.
 - No telemetry.
 - No automatic browser startup.
@@ -221,7 +211,7 @@ Optional security packages are listed in `pkg-lists/50-security-optional.list`.
 
 ## 12. Known limitations and validation status
 
-- The PC ISO has been generated; BIOS/UEFI and representative physical-hardware validation remain in progress.
+- The PC Release 3 ISO has been generated and booted to the graphical desktop; the live-session credentials are `user` / `live`. BIOS/UEFI and representative physical-hardware validation remain hardware-dependent and should be recorded separately.
 - Orange Pi Zero 3 Release 1 is the no-Wi-Fi build; Release 2 is the Wi-Fi build. PC desktop/laptop image is Release 3. No Release 4 exists.
 - Neither image guarantees compatibility with every model in its architecture family.
 - Physical boot and peripheral validation must be completed and documented before claiming full hardware support.
