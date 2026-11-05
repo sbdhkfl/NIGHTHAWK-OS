@@ -2,12 +2,15 @@
 
 **A lightweight, black-and-crimson, Debian-based cybersecurity operating system with separate images for x86_64 PCs and ARM64 single-board computers.**
 
-NIGHTHAWK OS now has a generated **x86_64 PC ISO build** intended for Intel- and AMD-based desktops and laptops, plus a separate **Orange Pi Zero 3 ARM64 image in Release 4**. These are different platform images: never flash the ARM64 board image to a PC or the PC ISO to an Orange Pi.
+NIGHTHAWK OS now has a generated **x86_64 PC ISO build** intended for Intel- and AMD-based desktops and laptops, plus two separate **Orange Pi Zero 3 ARM64 releases** (Release 1 without Wi-Fi and Release 2 with Wi-Fi). The **PC desktop/laptop image is Release 3**. There is no Release 4. These are different platform images: never flash the ARM64 board image to a PC or the PC ISO to an Orange Pi.
 
 ### Available image families
 
-- **PC (x86_64):** a 1.63 GiB ISO has been generated for Intel/AMD 64-bit desktops and laptops. BIOS/UEFI boot and hardware compatibility validation is still in progress; the ISO is not yet a guarantee for every model. The artifact must be attached to a GitHub release before it can be downloaded from this repository.
-- **Orange Pi Zero 3 (ARM64):** use the dedicated image in [NIGHTHAWK OS Release 4](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases). This image is for the Orange Pi Zero 3 / Allwinner H618 only.
+- **PC desktops and laptops (x86_64):** use **Release 3** in the [NIGHTHAWK OS releases](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases). This is the PC image for compatible Intel/AMD 64-bit computers. BIOS/UEFI and hardware compatibility still depend on the particular computer.
+- **Orange Pi Zero 3 without Wi-Fi (ARM64):** use **Release 1**.
+- **Orange Pi Zero 3 with Wi-Fi (ARM64):** use **Release 2**. This is the Wi-Fi-enabled Orange Pi build.
+
+Release 1 and Release 2 are board-specific images for the Orange Pi Zero 3 / Allwinner H618. Release 3 is the PC image. There is no Release 4.
 
 The two architectures require separate images, bootloaders, kernels, firmware, and drivers. Other ARM boards, Raspberry Pi models, and Android devices are not covered by these images.
 
@@ -15,7 +18,7 @@ The two architectures require separate images, bootloaders, kernels, firmware, a
 
 ## 1. What NIGHTHAWK OS is
 
-NIGHTHAWK OS is a purpose-built security workstation for the **Orange Pi Zero 3** (Allwinner H618, quad-core Cortex-A53, ARM64).
+NIGHTHAWK OS is a Debian-based security workstation with dedicated builds for the Orange Pi Zero 3 and x86_64 PCs. The release number determines which platform image to download.
 
 The design goals:
 
@@ -66,7 +69,7 @@ See [docs/HARDWARE.md](docs/HARDWARE.md) for details.
 
 ## 3. Platform image status
 
-NIGHTHAWK OS now maintains separate image paths for **x86_64 PCs** and **ARM64 Orange Pi Zero 3**. The PC ISO has been generated, but its validation and publication are still pending. The Orange Pi ARM64 image is provided in **Release 4** of the [release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
+NIGHTHAWK OS now maintains separate image paths for **x86_64 PCs** and **ARM64 Orange Pi Zero 3**. The PC ISO has been generated, but its validation and publication are still pending. The Orange Pi Zero 3 ARM64 images are **Release 1 (without Wi-Fi)** and **Release 2 (with Wi-Fi)**. The PC desktop/laptop image is **Release 3**. See the [release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
 
 A generated image is not proof of compatibility with every computer. A platform should only be described as fully validated after its boot tests and hardware checklist are documented. See [docs/MULTI-PLATFORM.md](docs/MULTI-PLATFORM.md) and [platforms/targets.json](platforms/targets.json) for the current status.
 
@@ -219,7 +222,7 @@ Optional security packages are listed in `pkg-lists/50-security-optional.list`.
 ## 12. Known limitations and validation status
 
 - The PC ISO has been generated; BIOS/UEFI and representative physical-hardware validation remain in progress.
-- The Orange Pi Zero 3 ARM64 image is in Release 4; use only on the specified board.
+- Orange Pi Zero 3 Release 1 is the no-Wi-Fi build; Release 2 is the Wi-Fi build. PC desktop/laptop image is Release 3. No Release 4 exists.
 - Neither image guarantees compatibility with every model in its architecture family.
 - Physical boot and peripheral validation must be completed and documented before claiming full hardware support.
 - RAM usage goals are targets, not measured guarantees.
@@ -258,7 +261,7 @@ Please review the repository's [LICENSE](LICENSE) before redistributing or modif
 
 ## Honest status note
 
-The current source configuration targets the Orange Pi Zero 3 only. Static checks are not proof of a working image; a completed Armbian build and physical testing are required before describing a release as fully validated.
+The Orange Pi releases and PC Release 3 are separate platform artifacts. Static checks and ISO generation do not prove compatibility with every device; use the correct release for your hardware and consult its release notes.
 
 ---
 
