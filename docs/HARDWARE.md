@@ -1,41 +1,43 @@
 # NIGHTHAWK OS — Hardware Compatibility
 
-NIGHTHAWK OS provides **separate platform images**. An x86_64 PC ISO and an ARM64 Orange Pi image are not interchangeable.
+NIGHTHAWK OS publishes separate images for the Orange Pi Zero 3 and x86_64 PCs. Choose the release that matches your hardware.
 
-## x86_64 PCs — image generated, validation pending
+## Release map
 
-| Hardware family | Intended image | Status |
+| Release | Device | Image details |
 |---|---|---|
-| Intel 64-bit desktops | PC x86_64 ISO | Image generated; BIOS/UEFI and hardware validation pending |
-| Intel 64-bit laptops | PC x86_64 ISO | Image generated; model-specific validation pending |
-| AMD 64-bit desktops | PC x86_64 ISO | Image generated; BIOS/UEFI and hardware validation pending |
-| AMD 64-bit laptops | PC x86_64 ISO | Image generated; model-specific validation pending |
+| **Release 1** | Orange Pi Zero 3 (ARM64) | Original build without Wi-Fi |
+| **Release 2** | Orange Pi Zero 3 (ARM64) | Orange Pi build with Wi-Fi |
+| **Release 3** | Intel/AMD 64-bit desktops and laptops (x86_64) | PC image |
+| Release 4 | — | **Does not exist** |
 
-A 1.63 GiB PC ISO was generated. This does **not** mean every PC is guaranteed to work. Compatibility depends on firmware settings and the exact graphics, Wi-Fi, Bluetooth, audio, touchpad, storage, and other hardware. BIOS and UEFI tests and representative physical-device tests must be documented before claiming broad validated support.
+Downloads: [NIGHTHAWK OS Releases](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
 
-## ARM64 — Orange Pi Zero 3
+## Orange Pi Zero 3 — ARM64
 
-| Hardware | Image | Status |
-|---|---|---|
-| Orange Pi Zero 3 (Allwinner H618, ARM64) | [Release 4 image](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases) | Dedicated board image available; follow Release 4 hardware notes |
+- Use **Release 1** if you need the no-Wi-Fi version.
+- Use **Release 2** for the Wi-Fi-enabled version.
+- Both are specific to the Orange Pi Zero 3 / Allwinner H618 platform.
+- Do not flash either Orange Pi image to a PC or a different ARM board.
 
-The Orange Pi image uses a board-specific boot chain, kernel, firmware, and device configuration. **Do not flash it to an Intel/AMD PC or another ARM board.**
+## Intel/AMD desktops and laptops — x86_64
 
-## Not covered by these images
+- Use **Release 3**.
+- Intended for compatible 64-bit Intel and AMD desktop and laptop computers.
+- BIOS/UEFI behavior and peripheral compatibility can vary by machine. Do not assume every model or every Wi-Fi, graphics, audio, Bluetooth, touchpad, or storage device is supported without testing.
 
-- Raspberry Pi models.
-- Other ARM64 single-board computers.
-- Android phones and tablets.
-- Other device families without their own image and validation.
+## Other devices
 
-## Validation checklist for PC images
+Raspberry Pi models, other ARM64 boards, Android devices, and other architectures require their own device-specific images and validation. Do not use the Orange Pi releases on them.
+
+## PC validation checklist
 
 - [ ] BIOS boot test completed and recorded.
 - [ ] UEFI boot test completed and recorded.
 - [ ] Secure Boot behavior documented.
 - [ ] Intel and AMD systems tested.
 - [ ] Graphics/display, keyboard, touchpad, audio, Ethernet, Wi-Fi, and Bluetooth checked.
-- [ ] Installer/storage behavior checked on representative systems.
+- [ ] Installation/storage behavior checked on representative systems.
 - [ ] Known limitations and tested hardware models published.
 
-A successful ISO build or virtual-machine boot is not proof of universal physical-hardware compatibility.
+A successful image build or virtual-machine boot is not proof of universal physical-hardware compatibility.
