@@ -1,19 +1,15 @@
 # NIGHTHAWK OS
 
-**A lightweight, black-and-crimson, Debian-based cybersecurity workstation currently built for the Orange Pi Zero 3.**
+**A lightweight, black-and-crimson, Debian-based cybersecurity operating system with separate images for x86_64 PCs and ARM64 single-board computers.**
 
-NIGHTHAWK OS customizes the official Armbian build of **Debian 13 (Trixie) for the Orange Pi Zero 3 (Allwinner H618, ARM64)** into a minimal, security-focused desktop operating system.
+NIGHTHAWK OS now has a generated **x86_64 PC ISO build** intended for Intel- and AMD-based desktops and laptops, plus a separate **Orange Pi Zero 3 ARM64 image in Release 4**. These are different platform images: never flash the ARM64 board image to a PC or the PC ISO to an Orange Pi.
 
-The current project is focused exclusively on the Orange Pi Zero 3:
+### Available image families
 
-- Official **Armbian** build framework
-- **Debian 13 Trixie** ARM64 base
-- **XFCE4** minimal desktop with the original **NIGHTHAWK** visual identity
-- **Firefox ESR**
-- Curated **defensive security toolkit**
-- Configuration intended for the board's 2GB and 4GB RAM variants
+- **PC (x86_64):** a 1.63 GiB ISO has been generated for Intel/AMD 64-bit desktops and laptops. BIOS/UEFI boot and hardware compatibility validation is still in progress; the ISO is not yet a guarantee for every model. The artifact must be attached to a GitHub release before it can be downloaded from this repository.
+- **Orange Pi Zero 3 (ARM64):** use the dedicated image in [NIGHTHAWK OS Release 4](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases). This image is for the Orange Pi Zero 3 / Allwinner H618 only.
 
-Other platforms may be explored in future development. **They are not current targets, and no PC, Raspberry Pi, virtual-machine, Android, or other-board image is currently provided or supported.** Any future port will require its own build configuration and hardware testing.
+The two architectures require separate images, bootloaders, kernels, firmware, and drivers. Other ARM boards, Raspberry Pi models, and Android devices are not covered by these images.
 
 ---
 
@@ -68,11 +64,11 @@ See [docs/HARDWARE.md](docs/HARDWARE.md) for details.
 
 ---
 
-## 3. Future development
+## 3. Platform image status
 
-The current release and build configuration are for the **Orange Pi Zero 3 only**. Future contributors may help explore ports to additional hardware, but a platform must not be called supported until its dedicated image has been built and tested on the exact target.
+NIGHTHAWK OS now maintains separate image paths for **x86_64 PCs** and **ARM64 Orange Pi Zero 3**. The PC ISO has been generated, but its validation and publication are still pending. The Orange Pi ARM64 image is provided in **Release 4** of the [release repository](https://github.com/sbdhkfl/NIGHTHAWK-OS-RELEASE/releases).
 
-See [docs/MULTI-PLATFORM.md](docs/MULTI-PLATFORM.md) for the future-expansion approach and [platforms/targets.json](platforms/targets.json) for planning metadata. These files are planning documentation only; they do not mean additional platform builds exist.
+A generated image is not proof of compatibility with every computer. A platform should only be described as fully validated after its boot tests and hardware checklist are documented. See [docs/MULTI-PLATFORM.md](docs/MULTI-PLATFORM.md) and [platforms/targets.json](platforms/targets.json) for the current status.
 
 ---
 
@@ -222,9 +218,10 @@ Optional security packages are listed in `pkg-lists/50-security-optional.list`.
 
 ## 12. Known limitations and validation status
 
-- The Orange Pi Zero 3 is the only current build target.
+- The PC ISO has been generated; BIOS/UEFI and representative physical-hardware validation remain in progress.
+- The Orange Pi Zero 3 ARM64 image is in Release 4; use only on the specified board.
+- Neither image guarantees compatibility with every model in its architecture family.
 - Physical boot and peripheral validation must be completed and documented before claiming full hardware support.
-- The 4GB variant requires validation.
 - RAM usage goals are targets, not measured guarantees.
 - Audio support depends on the board, kernel, and connected hardware.
 
